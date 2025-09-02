@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+  <title>Criptos - Crypdata</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Crypdata</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="criptos.html">Criptos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="cardList">
+      <h2>Lista de Criptomoedas</h2>
+
+      <!-- CAMPO DE BUSCA -->
+      <label for="search-crypto" class="search-container">
+        <input
+          type="text"
+          id="search-crypto"
+          placeholder="Buscar..."
+          autocomplete="off"
+        />
+      </label>
+
+      <table id="crypto-table-list">
+        <thead>
+          <tr>
+            <th>Moeda</th>
+            <th>Preço</th>
+            <th>Δ 24h</th>
+            <th>Alta 24h</th>
+            <th>Baixa 24h</th>
+            <th>Vol. (USDT)</th>
+            <th>Vol. Base</th>
+            <th>Trades</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- preenchido dinamicamente pelo script_criptos.js -->
+        </tbody>
+      </table>
+
+      <!-- Controles de paginação -->
+      <div id="pagination-controls"></div>
+    </section>
+  </main>
+
+  <script src="script_criptos.js"></script>
+</body>
+</html>

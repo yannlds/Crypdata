@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypdata</title>
+  <link rel="icon" href="assets/icons/icons8-blockchain-120.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Crypdata</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="criptos.html">Criptos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Seção do gráfico + título -->
+    <section class="chart-section">
+      <div class="container">
+        <h2 class="chart-heading">
+          Acompanhe os preços das<br />
+          principais criptomoedas em<br />
+          tempo real
+        </h2>
+        <div id="grafico" class="grafico-loading"></div>
+      </div>
+    </section>
+
+    <!-- Seção de conteúdo abaixo do gráfico -->
+    <section class="content-section">
+      <div class="container layout">
+        <div class="card">
+          <table id="crypto-table">
+            <thead>
+              <tr>
+                <th>Moeda</th>
+                <th>Preço</th>
+                <th>Δ 24h</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-coin="BTC">
+                <td>
+                  <img
+                    src="https://res.coinpaper.com/coinpaper/bitcoin_btc_logo_62c59b827e.png"
+                    alt="Bitcoin"
+                    width="25"
+                    height="25"
+                    style="vertical-align: middle; margin-right: 8px;"
+                  />
+                  <span class="symbol">BTC</span>
+                  <span class="name">Bitcoin</span>
+                </td>
+                <td id="BTC-price">-</td>
+                <td id="BTC-change">-</td>
+              </tr>
+              <tr data-coin="ETH">
+                <td>
+                  <img
+                    src="https://res.coinpaper.com/coinpaper/ethereum_eth_logo_e69b1c2368.png"
+                    alt="Ethereum"
+                    width="25"
+                    height="25"
+                    style="vertical-align: middle; margin-right: 8px;"
+                  />
+                  <span class="symbol">ETH</span>
+                  <span class="name">Ethereum</span>
+                </td>
+                <td id="ETH-price">-</td>
+                <td id="ETH-change">-</td>
+              </tr>
+              <tr data-coin="BNB">
+                <td>
+                  <img
+                    src="https://res.coinpaper.com/coinpaper/bnb_bnb_logo_a2a64c3335.png"
+                    alt="Binance Coin"
+                    width="25"
+                    height="25"
+                    style="vertical-align: middle; margin-right: 8px;"
+                  />
+                  <span class="symbol">BNB</span>
+                  <span class="name">Binance Coin</span>
+                </td>
+                <td id="BNB-price">-</td>
+                <td id="BNB-change">-</td>
+              </tr>
+              <tr data-coin="XRP">
+                <td>
+                  <img
+                    src="https://res.coinpaper.com/coinpaper/xrp_xrp_logo_c2ba16fdd9.png"
+                    alt="XRP"
+                    width="25"
+                    height="25"
+                    style="vertical-align: middle; margin-right: 8px;"
+                  />
+                  <span class="symbol">XRP</span>
+                  <span class="name">XRP</span>
+                </td>
+                <td id="XRP-price">-</td>
+                <td id="XRP-change">-</td>
+              </tr>
+              <tr data-coin="SOL">
+                <td>
+                  <img
+                    src="https://res.coinpaper.com/coinpaper/solana_sol_logo_32f9962968.png"
+                    alt="Solana"
+                    width="25"
+                    height="25"
+                    style="vertical-align: middle; margin-right: 8px;"
+                  />
+                  <span class="symbol">SOL</span>
+                  <span class="name">Solana</span>
+                </td>
+                <td id="SOL-price">-</td>
+                <td id="SOL-change">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.1/dist/lightweight-charts.standalone.production.min.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Script para navegar na mesma aba -->
+  <script>
+    document.querySelectorAll('#crypto-table tbody tr').forEach(row => {
+      row.style.cursor = 'pointer';
+      row.addEventListener('click', () => {
+        const coin = row.dataset.coin;
+        window.location.href = `trade.html?coin=${coin}`;
+      });
+    });
+  </script>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p class="signature">
+        Desenvolvido por <span class="author">Yan Luiz dos Santos</span>
+      </p>
+      <ul class="socials">
+        <li><a href="https://linkedin.com/in/seu-perfil" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:contato@seusite.com">yan.sistemasrpa@gmail.com</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

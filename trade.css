@@ -1,0 +1,131 @@
+/* trade.css */
+
+/* Container geral */
+.trade-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  height: calc(100vh - 68px);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Order book comum */
+.orderbook {
+  background-color: #1E2329;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.orderbook h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+/* Lista e linhas do book */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.book-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #2a2e35;
+  font-size: 0.875rem;
+  color: #d1d5db;
+  opacity: 1;
+}
+
+.book-row.header {
+  font-weight: 600;
+  color: #fff;
+  border-bottom: 1px dashed #555;
+}
+
+/* Cor das células conforme lado */
+.orderbook-sell .book-row:not(.header) span {
+  color: #ef5350; /* vermelho para vendas */
+}
+
+.orderbook-buy .book-row:not(.header) span {
+  color: #26a69a; /* verde para compras */
+}
+
+/* Área do gráfico */
+.chart-area {
+  position: relative;
+  overflow: visible;
+}
+
+#trade-chart {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  background-color: #1E2329;
+}
+
+/* Título com logo e nome da moeda */
+#chart-title {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  transform: none;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+
+#chart-title img {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  object-fit: contain;
+}
+
+#chart-title span {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Preço atual alinhado ao título */
+.current-price {
+  position: absolute;
+  top: 1rem;
+  left: calc(1rem + 20px + 0.5rem + 0.5rem); /* ajusta após logo+texto */
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.current-price {
+  transition: color 0.3s ease;
+}
+
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .trade-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    height: auto;
+    padding: 1rem;
+  }
+
+  #trade-chart {
+    height: 300px;
+    margin-bottom: 2rem;
+  }
+}

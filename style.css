@@ -1,0 +1,664 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #191A20;
+  color: #fff;
+}
+
+/* Cabeçalho fixo – index.html */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  padding: 1rem 2rem;
+  background: #191A20;
+  border-bottom: 1px solid #161b22;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-start;   
+  margin-left: 2rem;            
+}
+
+/* Mantém o estilo dos links */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #c9d1d9;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #58a6ff;
+}
+
+
+/* Conteúdo principal alinhado à direita */
+main {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: 10rem;
+  padding: 1rem;
+}
+
+/* Seção do gráfico */
+.chart-section {
+  width: 1200%;
+  max-width: 900px;
+  margin: 40px auto; 
+  position: relative; 
+}
+
+.chart-heading {
+  margin: 0 0 1rem 0;
+  text-align: left;
+  line-height: 1.2;
+  font-size: 3.3rem;
+}
+
+/* Estilo do gráfico */
+#grafico {
+  width: 300%;
+  max-width: 1485px;
+  height: 60vh;        
+  margin: 200px auto;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  overflow: hidden;
+  overflow: visible !important;
+  padding-bottom: 20px; 
+}
+
+/* Layout de cards e notícias */
+.content-section.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Card da tabela */
+.card {
+  background-color: #1E2329;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+#crypto-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+#crypto-table th,
+#crypto-table td {
+  padding: 0.9rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #2a2e35;
+}
+
+#crypto-table tr:nth-child(even) {
+  background-color: #1E2329;
+}
+
+/* Feedback visual para linhas clicáveis */
+#crypto-table tbody tr {
+  cursor: pointer;
+  transition: background-color 0.3s ease,
+              transform 0.1s ease;
+}
+
+#crypto-table tbody tr:hover {
+  background-color: #2f363f;
+  transform: scale(1.02);
+}
+
+#crypto-table tbody tr:active {
+  transform: scale(0.98);
+}
+
+/* Seta indicativa ao passar o mouse */
+#crypto-table tbody tr td:first-child {
+  position: relative;
+}
+
+#crypto-table tbody tr td:first-child::after {
+  content: "➔";
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%) translateX(5px);
+  opacity: 0;
+  transition: opacity 0.2s ease,
+              transform 0.2s ease;
+}
+
+#crypto-table tbody tr:hover td:first-child::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.symbol {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.name {
+  font-size: 0.85rem;
+  color: #666666;
+}
+
+/* Card de notícias com scrollbar customizada 
+
+/*#noticias {
+  background-color: #1E2329;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  height: 430px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  clip-path: inset(0 round 16px);
+}
+
+.noticia {
+  background-color: #1E2329;
+  border-bottom: 1px solid #2a2e35;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.noticia:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.noticia h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.noticia h3 a {
+  text-decoration: none;
+  color: #58a6ff;
+}
+
+.noticia h3 a:hover {
+  text-decoration: underline;
+}
+
+.noticia p {
+  margin: 0.5rem 0 0;
+  color: #ddd;
+  line-height: 1.5;
+}*/
+
+/* Scrollbar fina para o container de notícias */
+#noticias::-webkit-scrollbar {
+  width: 6px;
+}
+
+#noticias::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#noticias::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 6px;
+}
+
+#noticias::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  main {
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .content-section.layout {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    margin-right: 0;
+  }
+}
+
+.centralizado {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.centralizado table {
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* 1. Centraliza o conteúdo e define largura máxima */
+.centralizado {
+  max-width: 1200px;
+  width: 95%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+/* 2. Container para scroll horizontal em telas pequenas */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* 3. Estilo base da tabela */
+#tabelaBinance {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #1e2329;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* 4. Cabeçalho escuro e fixo */
+#tabelaBinance thead {
+  background-color: #2a2e35;
+}
+
+#tabelaBinance thead th {
+  position: sticky;
+  top: 0;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #3b3f4c;
+}
+
+/* 5. Linhas e células */
+#tabelaBinance tbody tr {
+  transition: background-color 0.2s;
+}
+
+#tabelaBinance tbody tr:nth-child(even) {
+  background-color: #242a33;
+}
+
+#tabelaBinance tbody tr:hover {
+  background-color: #2f363f;
+}
+
+#tabelaBinance td {
+  padding: 0.75rem 1rem;
+  color: #d1d5db;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  border-bottom: 1px solid #3b3f4c;
+}
+
+/* 6. Coluna de variação com ícones e cores */
+#tabelaBinance td.var-positive {
+  color: #4caf50;
+}
+#tabelaBinance td.var-positive::before {
+  content: "▲ ";
+  font-size: 0.75rem;
+}
+
+#tabelaBinance td.var-negative {
+  color: #e74c3c;
+}
+#tabelaBinance td.var-negative::before {
+  content: "▼ ";
+  font-size: 0.75rem;
+}
+
+/* 7. Responsividade de texto em mobile */
+@media (max-width: 600px) {
+  #tabelaBinance thead th,
+  #tabelaBinance td {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+.seta {
+  font-size: 0.8em;
+  margin-right: 4px;
+}
+
+.var-positive {
+  color: #4caf50;
+}
+
+.var-negative {
+  color: #e91e63;
+}
+
+
+/* 1. Centraliza e limita largura do card */
+.cardList {
+  max-width: 1000px;        
+  margin: 2rem auto;        
+  background-color: #1E2329;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+/* 2. Tabela 100% do container + centralizada */
+#crypto-table-list {
+  table-layout: fixed;
+  width: 100%;     
+}
+
+/* 3. Células e linhas */
+#crypto-table-list th,
+#crypto-table-list td {
+  padding: 0.9rem 0.0rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  border-bottom: 1px solid #2a2e35;
+  font-weight: bold;
+}
+
+#crypto-table-list tr:nth-child(even) {
+  background-color: #1E2329;
+}
+
+/* Hover animation para cada linha */
+#crypto-table-list tbody tr {
+  cursor: pointer;
+  transition: background-color 0.3s ease,
+              transform 0.1s ease;
+}
+
+#crypto-table-list tbody tr:hover {
+  background-color: #2f363f;
+  transform: scale(1.02);
+}
+
+#crypto-table-list tbody tr:active {
+  transform: scale(0.98);
+}
+
+/* Setinha indicativa no primeiro TD ao passar o mouse */
+#crypto-table-list tbody tr td:first-child {
+  position: relative;
+}
+
+#crypto-table-list tbody tr td:first-child::after {
+  content: "➔";
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%) translateX(5px);
+  opacity: 0;
+  transition: opacity 0.2s ease,
+              transform 0.2s ease;
+}
+
+#crypto-table-list tbody tr:hover td:first-child::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* 4. Paginação */
+#pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 0.5rem;
+}
+
+#pagination-controls span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.25rem;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+#pagination-controls button {
+  background-color: #2a2e35;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+  min-width: 2.2rem;  
+}
+
+#pagination-controls button:hover:not(:disabled) {
+  background-color: #3a3f48;
+}
+
+#pagination-controls button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* 5. Responsividade */
+@media (max-width: 600px) {
+  .cardList {
+    padding: 0.5rem;
+  }
+  #crypto-table-list th,
+  #crypto-table-list td {
+    padding: 0.6rem 0.4rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Em style.css */
+
+.logo-crypto {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+/* CSS */
+.search-container {
+  position: relative;
+  display: inline-block;
+  width: 2rem;              
+  height: 2rem;              
+  overflow: hidden;          
+  transition: width .3s ease;
+  cursor: pointer;          
+}
+
+/* Quando o input ou o label recebe foco, expande */
+.search-container:focus-within {
+  width: 180px;            
+}
+
+/* o input começa invisível, sem borda, e ocupa 100% do container */
+.search-container input {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem 0.5rem 0.5rem 2rem; 
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: #f5f5f5;
+  opacity: 0;
+  transition: opacity .2s ease;
+  cursor: text;
+}
+
+/* só mostra o texto depois de expandir */
+.search-container:focus-within input {
+  opacity: 1;
+}
+
+/* ícone da lupa via pseudo-elemento */
+.search-container::before {
+  content: "\1F50D";       /* 🔍 */
+  position: absolute;
+  top: 50%;
+  left: 0.5rem;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #666;
+  pointer-events: none;    
+}
+
+.market-mood-footer {
+  color: #eee;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.market-mood-container {
+  display: inline-flex;
+  align-items: center;
+}
+
+#mood-icon {
+  font-size: 3.5rem;
+  margin-right: 8px;
+}
+.site-footer {
+  background-color: #191A20;
+  color: #d1d4dc;
+  padding: 20px 0;
+  font-size: 14px;
+  border-top: 1px solid #191A20;
+}
+
+.site-footer .footer-content {
+  /* limita largura e centraliza todo o conteúdo */
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.site-footer .signature {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.site-footer .signature .author {
+  color: #26a69a;
+}
+
+.site-footer .signature a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.site-footer .signature a:hover {
+  text-decoration: underline;
+}
+
+.site-footer .socials {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 12px;
+  justify-content: center; 
+}
+
+.site-footer .socials a {
+  color: #d1d4dc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-footer .socials a:hover {
+  color: #58a6ff;
+}
+
+/* Circulo redondo nas logos */
+
+/* ↑↑↑ INSIRA AQUI → deixa as logos com fundo branco e cantos arredondados */
+#crypto-table tbody tr td img {
+  display: inline-block;      
+  background-color: #ffffff;  
+  border-radius: 50%;         
+  padding: 4px;               
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); 
+}
+
+/* opcional: garante tamanho uniforme */
+#crypto-table tbody tr td img {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+/* estilos para o selo branco no overlay do gráfico */
+#titulo-overlay .logo-chart {
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;     
+  border-radius: 50%;            
+  padding: 4px;                 
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
